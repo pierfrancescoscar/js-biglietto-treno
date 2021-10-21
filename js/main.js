@@ -27,3 +27,10 @@ if (age < 18)  {
     console.log('Prezzo scontato per minorenni: ' + discountPrice);
 }
 
+// 6. Applica sconto del 40% se l'utente è over 65
+
+if (age > 65) {
+    discountPrice = finalPrice - (finalPrice * 40 / 100);
+    console.log ('Prezzo scontato per utenti over 65: ' + discountPrice);
+}
+
