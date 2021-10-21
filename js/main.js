@@ -2,35 +2,41 @@
 
 // 1. Chiedi quanti kilometri vuole percorrere
 
-const km = prompt ('Quanti kilometri vuoi percorrere?');
-console.log('Km percorsi: ' + km);
+const km = parseInt ( prompt ('Quanti kilometri vuoi percorrere?') );
+
 
 // 2. Chiedi l'età del passeggero
 
-const age = prompt ("Qual è l'età del passeggero?");
-console.log('Età passeggero: ' + age);
+const age = parseInt ( prompt ("Qual è l'età del passeggero?") );
+
 
 // 3. Definisci il prezzo del biglietto in base ai km da percorrere
 
 const price = km * 0.21;
-console.log('Prezzo biglietto per km percorso: ' + price);
+
 
 // 4. Definisci prezzo finale del biglietto
 
 let finalPrice = price * km;
-console.log ('Prezzo finale del biglietto: ' + finalPrice);
 
-// 5. Applica sconto del 20% se l'utente è minorenne 
+
+// 5. Applica sconto del 20% se l'utente è minorenne, del 40% se l'utente è over 65
 
 if (age < 18)  {
-    discountPrice = finalPrice - (finalPrice * 20 / 100);
-    console.log('Prezzo scontato per minorenni: ' + discountPrice);
+    finalPrice = finalPrice - (finalPrice * 20 / 100);
+
+} else if (age > 65) {
+    finalPrice = finalPrice - (finalPrice * 40 / 100);
 }
 
-// 6. Applica sconto del 40% se l'utente è over 65
 
-if (age > 65) {
-    discountPrice = finalPrice - (finalPrice * 40 / 100);
-    console.log ('Prezzo scontato per utenti over 65: ' + discountPrice);
-}
+// 6. Arrotondamento prezzo finale a max due decimali
+
+finalPrice = finalPrice.toFixed(2);
+
+// 7. Mostra output del prezzo finale
+
+document.getElementById('result').innerHTML = 'Il tuo biglietto costa: ' + '€'+ finalPrice;
+
+
 
